@@ -1,0 +1,64 @@
+<main class="main">
+  <p class="title">Cat Pictures Search</p>
+
+  <div class="filters" *ngIf="listOfBreeds$ | async as listOfBreeds">
+    <form action="" *ngIf="!listOfBreeds.pending" [formGroup]="searchForm" (ngSubmit)="onSubmit()">
+      <mat-form-field class="filter" appearance="fill">
+        <mat-label>Breed</mat-label>
+        <select matNativeControl required formControlName="breed">
+          <option value="all">All</option>
+          <option *ngFor="let option of listOfBreeds.images" [value]="option.id">{{option.name}}</option>
+        </select>
+      </mat-form-field>
+      <mat-form-field class="filter" appearance="fill">
+        <mat-label>Quantity</mat-label>
+        <select matNativeControl required formControlName="quantity">
+          <option value="10">10</option>
+          <option value="15">15</option>
+          <option value="20">20</option>
+          <option value="25">25</option>
+          <option value="30">30</option>
+          <option value="35">35</option>
+          <option value="40">40</option>
+        </select>
+      </mat-form-field>
+      <button mat-raised-button type="submit" color="primary">Search</button>
+    </form>
+  </div>
+
+  <div *ngIf="imagesData$ | async as photos" class="maincontent">
+    <img
+      *ngFor="let img of photos.images.slice(pagination.startIndex, pagination.endIndex)"
+      [src]="img.url"
+      alt="Img"
+      class="imgrid"
+    >
+  </div>
+
+  <div class="paginator" *ngIf="imagesData$ | async as imageData">
+    <mat-paginator *ngIf="!imageData.pending"
+                   [length]="imageData.images.length"
+                   [pageSize]="5"
+                   [pageSizeOptions]="[5, 10, 25, 100]"
+                   (page)="onPageChange($event)"
+    >
+    </mat-paginator>
+  </div>
+
+  <div *ngIf="imagesData$ | async as imageData">
+    <div *ngIf="imageData.pending" class="placeholder">
+      <mat-spinner class="spinner_load"></mat-spinner>
+      <p>Loading</p>
+    </div>
+  </div>
+
+</main>
+
+<!--
+  Make Breeds load from store ✓
+  Interceptor(to set api-key) ✓
+  Resolver(to load breeds before component loads,
+   so select will not be empty) ✓
+  Pagination ✓
+-->
+

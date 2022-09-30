@@ -1,0 +1,58 @@
+.main {
+  padding: 2rem;
+  margin: 0rem;
+}
+
+.title {
+  width: 100%;
+  text-align: center;
+  color: #3F51B5;
+  font-size: 2rem;
+}
+
+.filter {
+  margin-right: .5rem;
+}
+
+.maincontent {
+  justify-content: center;
+  align-items: center;
+  margin-top: 10px;
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 280px));
+  gap: .5em;
+}
+
+.imgrid {
+  border-radius: .5rem;
+  width: 280px;
+  height: 280px;
+  object-fit: cover;
+  object-position: center;
+}
+
+.placeholder {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-size: 4rem;
+  color: #3F51B5;
+}
+
+.spinner_load {
+  margin-bottom: 2rem;
+}
+
+.paginator {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+
+
