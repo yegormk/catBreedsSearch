@@ -1,18 +1,18 @@
-export interface CatImage {
+export interface catImage {
   id: string,
   url: string,
   name: string,
   width: number,
   height: number,
-}
+};
 
-export interface CatImageData {
+export interface catImageData {
   pending: boolean,
   error: string,
-  images: CatImage[],
-}
+  images: catImage[],
+};
 
-export interface CatGalleryState {
-  imageData: CatImageData,
-  listOfBreeds: CatImageData,
-}
+export interface catGalleryState {
+  imageData: catImageData,
+  listOfBreeds: catImageData,
+};

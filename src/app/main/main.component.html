@@ -7,9 +7,13 @@
         <mat-label>Breed</mat-label>
         <select matNativeControl required formControlName="breed">
           <option value="all">All</option>
-          <option *ngFor="let option of listOfBreeds.images" [value]="option.id">{{option.name}}</option>
+          <option
+            *ngFor="let option of listOfBreeds.images"
+            [value]="option.id"
+          >{{option.name}}</option>
         </select>
       </mat-form-field>
+
       <mat-form-field class="filter" appearance="fill">
         <mat-label>Quantity</mat-label>
         <select matNativeControl required formControlName="quantity">
@@ -53,12 +57,4 @@
   </div>
 
 </main>
-
-<!--
-  Make Breeds load from store ✓
-  Interceptor(to set api-key) ✓
-  Resolver(to load breeds before component loads,
-   so select will not be empty) ✓
-  Pagination ✓
--->
 

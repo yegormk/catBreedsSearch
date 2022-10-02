@@ -1,7 +1,7 @@
 import {createAction, props} from '@ngrx/store';
-import {CatImage} from "./cats.state";
+import {catImage} from "./cats.state";
 
-export const LoadImages = createAction(
+export const loadImages = createAction(
   '[Cats] Get Images',
   props<{
     limit: string,
@@ -9,28 +9,28 @@ export const LoadImages = createAction(
   }>()
 );
 
-export const LoadedImages = createAction(
+export const loadedImages = createAction(
   '[Cats] Images Loaded',
-  props<{ imageResponse: CatImage[] }>()
+  props<{ imageResponse: catImage[] }>()
 );
 
-export const ImagesNotLoaded = createAction(
+export const imagesNotLoaded = createAction(
   '[Cat Gallery] Images Loaded',
   props<{ error: string }>()
 );
 
-export const LoadListOfBreeds = createAction(
+export const loadListOfBreeds = createAction(
   '[Cats] Get List of Breeds',
 );
 
-export const LoadedListOfBreeds = createAction(
+export const loadedListOfBreeds = createAction(
   '[Cats] Got List of Breeds',
-  props<{ listOfBreedsResponse: CatImage[] }>()
-)
+  props<{ listOfBreedsResponse: catImage[] }>()
+);
 
-export const ListOfBreedsNotLoaded = createAction(
+export const listOfBreedsNotLoaded = createAction(
   '[Cat] List of Breeds not loaded',
   props<{ error: string }>()
-)
+);
 
 

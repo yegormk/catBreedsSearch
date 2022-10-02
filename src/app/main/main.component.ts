@@ -1,14 +1,13 @@
 import {Component, OnInit} from '@angular/core';
-import {FormGroup, FormControl, Validators} from '@angular/forms';
+import {FormControl, FormGroup, Validators} from '@angular/forms';
 
 import {select, Store} from '@ngrx/store';
 
 import {PageEvent} from '@angular/material/paginator';
 
-import {CatGalleryState} from '../store/cats.state';
+import {catGalleryState} from '../store/cats.state';
 import * as CatGalleryActions from '../store/cats.actions';
 import {selectBreeds, selectCats} from '../store/cats.selectors';
-
 
 @Component({
   selector: 'main-root',
@@ -16,7 +15,7 @@ import {selectBreeds, selectCats} from '../store/cats.selectors';
   styleUrls: ['./main.component.css']
 })
 export class MainComponent implements OnInit {
-  constructor(private store: Store<CatGalleryState>) { }
+  constructor(private store: Store<catGalleryState>) { }
 
   searchForm!: FormGroup;
 
@@ -32,7 +31,7 @@ export class MainComponent implements OnInit {
   loadImages(): void {
     this.pagination.limit = this.searchForm.value.quantity;
     this.store.dispatch(
-      CatGalleryActions.LoadImages({
+      CatGalleryActions.loadImages({
         limit: this.searchForm.value.quantity,
         breed: this.searchForm.value.breed,
       })
@@ -59,7 +58,7 @@ export class MainComponent implements OnInit {
       ])
     });
     this.loadImages();
-    this.store.dispatch(CatGalleryActions.LoadListOfBreeds());
+    this.store.dispatch(CatGalleryActions.loadListOfBreeds());
   }
 
   onSubmit() {

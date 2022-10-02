@@ -1,17 +1,17 @@
-import {CatGalleryState, CatImageData} from './cats.state';
+import {catGalleryState, catImageData} from './cats.state';
 import {createSelector} from '@ngrx/store';
 
 export const selectCats = createSelector(
-  (state: CatGalleryState) => {
+  (state: catGalleryState) => {
     return state.imageData;
   },
-  (imageData: CatImageData) => imageData
+  (imageData: catImageData) => imageData
 );
 
 export const selectBreeds = createSelector(
-  (state: CatGalleryState) => {
+  (state: catGalleryState) => {
     return state.listOfBreeds;
   },
-  (breedsData: CatImageData) => breedsData
+  (breedsData: catImageData) => breedsData
 );
 
